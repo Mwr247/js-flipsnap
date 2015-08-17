@@ -143,7 +143,7 @@ Flipsnap.prototype.init = function(element, opts) {
   }
 
   // initilize
-  self.refresh();
+  self.refresh(0);
 
   eventTypes.forEach(function(type) {
     self.element.addEventListener(events.start[type], self, false);
@@ -173,7 +173,7 @@ Flipsnap.prototype.handleEvent = function(event) {
   }
 };
 
-Flipsnap.prototype.refresh = function() {
+Flipsnap.prototype.refresh = function(transitionDuration) {
   var self = this;
 
   // setting max point
@@ -209,7 +209,7 @@ Flipsnap.prototype.refresh = function() {
   // setting maxX
   self._maxX = -self._distance * self._maxPoint;
 
-  self.moveToPoint(undefined, 0);
+  self.moveToPoint(undefined, transitionDuration);
 };
 
 Flipsnap.prototype.hasNext = function() {
